@@ -20,3 +20,6 @@ docs/_build/
 htmlcov/
 .coverage
 .coverage.*
+
+# Database
+*.db
