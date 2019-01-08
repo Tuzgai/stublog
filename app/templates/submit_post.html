@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+<div class="container">
+    <h1>Submit Post</h1>
+    <p>
+        Posts are formatted as markdown, details here: <a href="https://daringfireball.net/projects/markdown/syntax">Markdown</a>
+    </p>
+    <div class="row">
+        <div class="col-md-4">
+            {{ wtf.quick_form(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}
