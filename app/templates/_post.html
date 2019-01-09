@@ -9,14 +9,14 @@
                 {{ post.author.username }}
                 <small class="text-muted" style="font-style: italic;">posted at {{ post.timestamp }}</small>
                 {% if current_user.username == post.author.username %}
-                <a style="float:right;" href="">Edit</a>
+                <a style="float:right;" href="{{ url_for('main.editPost', post=post.id)}}">Edit</a>
                 {% endif %}
             </td>
         </tr>
         <tr>
             <td>
             {{ post.body|markdown }}
-            <a href="{{ url_for('main.viewPost', post=post.id) }}">Permalink</a>
+            <small><a href="{{ url_for('main.viewPost', post=post.id) }}">Permalink</a></small>
             </td>
         </tr>
     </table>
