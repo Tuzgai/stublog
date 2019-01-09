@@ -12,5 +12,23 @@
             {{ wtf.quick_form(form) }}
         </div>
     </div>
+    <a class="btn btn-default" 
+       style="background-color:lightcoral; margin-top:5em;" 
+       href=""
+       onclick="deletePost(); return false;">
+        DELETE POST
+    </a>
 </section>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script>
+        function deletePost() {
+            if (confirm('Are you sure you want to delete this post?')) {
+                window.location.replace("{{ url_for('main.deletePost', post=post.id, confirm=True) }}");
+                return true;
+            }
+        }
+    </script>
 {% endblock %}

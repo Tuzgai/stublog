@@ -43,10 +43,23 @@ def editPost(post):
         post.body = form.body.data
         post.last_edited_timestamp = datetime.utcnow()
         db.session.commit()
-        flash('Your changes have been saved.')
+        flash('Your changes have been saved.', 'success')
         return redirect(url_for('main.viewPost', post=post.id))
     elif request.method == 'GET':
         form.title.data = post.title
         form.body.data = post.body
-    return render_template('edit.html', title='Edit Post', form=form)
+    return render_template('edit.html', title='Edit Post', form=form, post=post)
+
+@bp.route('/post/<post>/delete')
+@login_required
+def deletePost(post, confirm=False):
+    post = Post.query.filter_by(id=post).first()
+    confirm = request.args.get('confirm')
+    if post is None or current_user.username is not post.author.username:
+        flash('You cannot edit posts you did not create.', 'danger')
+    elif confirm == 'True':
+        db.session.delete(post)
+        db.session.commit()
+        flash('Your post has been deleted.', 'success')
+    return redirect(url_for('main.index'))
     
