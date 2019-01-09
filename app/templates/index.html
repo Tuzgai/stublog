@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block app_content %}
-<div class="container">
+<section class="container">
     {% for post in posts %}
         {% include '_post.html' %}
     {% endfor %}
-</div>
+</section>
 {% endblock %}
