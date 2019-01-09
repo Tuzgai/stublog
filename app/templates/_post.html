@@ -7,7 +7,8 @@
             <td>
                 <img src="{{ post.author.avatar(36) }}">
                 {{ post.author.username }}
-                <small class="text-muted" style="font-style: italic;">posted at {{ post.timestamp }}</small>
+                <small class="text-muted" style="font-style: italic;">
+                posted at {{ moment(post.timestamp).format('LLL') }}</small>
                 {% if current_user.username == post.author.username %}
                 <a style="float:right;" href="{{ url_for('main.editPost', post=post.id)}}">Edit</a>
                 {% endif %}
@@ -16,7 +17,13 @@
         <tr>
             <td>
             {{ post.body|markdown }}
-            <small><a href="{{ url_for('main.viewPost', post=post.id) }}">Permalink</a></small>
+            <small>
+                {% if post.last_edited_timestamp != None %}
+                <span class="text-muted">
+                Last edited {{ moment(post.last_edited_timestamp).fromNow() }}</span>
+                {% endif %}
+                <a href="{{ url_for('main.viewPost', post=post.id) }}">Permalink</a>
+            </small>
             </td>
         </tr>
     </table>
