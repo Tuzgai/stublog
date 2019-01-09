@@ -1,15 +1,20 @@
 <article>
+    <h2><a href= "/posts/{{ post.id }}">{{ post.title }}</a></h2>
     <table class="table">
         <tr>
             <td>
                 <img src="{{ post.author.avatar(36) }}">
                 {{ post.author.username }}
                 <span style="font-style: italic; color:lightgray;">posted at {{ post.timestamp }}</span>
+                {% if current_user.username == post.author.username %}
+                <a style="float:right;" href="">Edit</a>
+                {% endif %}
             </td>
         </tr>
         <tr>
             <td>
-            {{ post.body|markdown(fenced_code=True, hard_wrap=True, smartypants=True) }}
+            {{ post.body|markdown }}
+            <a href="/posts/{{ post.id }}">Permalink</a>
             </td>
         </tr>
     </table>
