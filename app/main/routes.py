@@ -28,7 +28,7 @@ def submitPost():
 @bp.route('/post/<post>')
 def viewPost(post):
     post = Post.query.filter_by(id=post).first()
-    return render_template('post.html', post=post)
+    return render_template('post.html', title=post.title, post=post)
 
 @bp.route('/post/<post>/edit', methods=['GET', 'POST'])
 @login_required

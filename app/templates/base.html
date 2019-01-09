@@ -1,6 +1,10 @@
 {% extends 'bootstrap/base.html' %}
 
-{% block title %}Stublog!{% endblock %}
+{% block title %}
+{% if title %}Stublog! - {{ title }}
+{% else %} Stublog!
+{% endif %}
+{% endblock %}
 
 {% block navbar %}
     <nav class ="navbar navbar-default">
