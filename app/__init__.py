@@ -8,6 +8,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_misaka import Misaka
 from flask_moment import Moment
+from flask_mail import Mail
 from config import Config
 
 bootstrap = Bootstrap()
@@ -16,6 +17,7 @@ db = SQLAlchemy()
 migrate = Migrate()
 md = Misaka(fenced_code=True, hard_wrap=True)
 moment=Moment()
+mail = Mail()
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -27,6 +29,7 @@ def create_app(config_class=Config):
     migrate.init_app(app, db)
     md.init_app(app)
     moment.init_app(app)
+    mail.init_app(app)
     
     from app.main import bp as main_bp
     app.register_blueprint(main_bp)
@@ -66,8 +69,6 @@ def create_app(config_class=Config):
 
         app.logger.setLevel(logging.INFO)
         app.logger.info('Stublog startup')
-        
-        app.logger.error('Test!')
     return app
        
 from app import models
