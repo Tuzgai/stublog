@@ -12,7 +12,7 @@ def profile(username):
     posts = Post.query.filter_by(author=user).order_by(Post.timestamp.desc()).all()
     if user is None:
         flash('The requested profile could not be found.', 'warning')
-        return redirect('main.index')
+        return redirect(url_for('main.index'))
     return render_template('profile/profile.html', title='Profile', user=user, posts=posts)
     
 @bp.route('/profile/<username>/edit', methods=['GET', 'POST'])

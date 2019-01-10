@@ -12,6 +12,9 @@
         <td>Post count: {{ user.posts.count() }} </td>
     </tr>
     <tr>
+        <td>{{ user.bio }}</td>
+    </tr>
+    <tr>
         <td><a href="{{ url_for('profile.profile', username=user.username)}}">All Posts</a></td>
     </tr>
     <tr>
