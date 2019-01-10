@@ -1,0 +1,6 @@
+2019-01-10 11:44:06,587 INFO: Stublog startup [in C:\Users\Stuart\Repos\blog\app\__init__.py:65]
+2019-01-10 11:50:44,864 INFO: Stublog startup [in C:\Users\Stuart\Repos\blog\app\__init__.py:65]
+2019-01-10 11:54:54,497 INFO: Stublog startup [in C:\Users\Stuart\Repos\blog\app\__init__.py:65]
+2019-01-10 11:54:54,498 ERROR: Test! [in C:\Users\Stuart\Repos\blog\app\__init__.py:67]
+2019-01-10 11:56:24,358 INFO: Stublog startup [in C:\Users\Stuart\Repos\blog\app\__init__.py:65]
+2019-01-10 11:56:24,358 ERROR: Test! [in C:\Users\Stuart\Repos\blog\app\__init__.py:67]
