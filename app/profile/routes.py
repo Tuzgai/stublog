@@ -17,7 +17,7 @@ def profile(username):
     
 @bp.route('/profile/<username>/edit', methods=['GET', 'POST'])
 @login_required
-def editProfile(username):
+def edit_profile(username):
     user = User.query.filter_by(username=username).first()
     if user is None or user.username is not current_user.username:
         flash("You cannot edit another person's profile.", 'danger')

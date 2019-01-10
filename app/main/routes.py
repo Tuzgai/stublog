@@ -15,7 +15,7 @@ def index():
 
 @bp.route('/submit_post', methods=['GET', 'POST'])
 @login_required
-def submitPost():
+def submit_post():
     form = SubmitPostForm()
     if form.validate_on_submit():
         post = Post(title=form.title.data, body=form.body.data, author=current_user, timestamp=datetime.utcnow())
@@ -26,13 +26,13 @@ def submitPost():
     return render_template('submit_post.html', title="Submit Post", form=form)
 
 @bp.route('/post/<post>')
-def viewPost(post):
+def view_post(post):
     post = Post.query.filter_by(id=post).first()
     return render_template('post.html', title=post.title, post=post)
 
 @bp.route('/post/<post>/edit', methods=['GET', 'POST'])
 @login_required
-def editPost(post):
+def edit_post(post):
     post = Post.query.filter_by(id=post).first()
     if post is None or current_user.username is not post.author.username:
         flash('You cannot edit posts you did not create.', 'danger')
@@ -52,7 +52,7 @@ def editPost(post):
 
 @bp.route('/post/<post>/delete')
 @login_required
-def deletePost(post, confirm=False):
+def delete_post(post, confirm=False):
     post = Post.query.filter_by(id=post).first()
     confirm = request.args.get('confirm')
     if post is None or current_user.username is not post.author.username:

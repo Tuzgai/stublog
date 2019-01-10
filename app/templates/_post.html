@@ -10,7 +10,7 @@
                 <small class="text-muted" style="font-style: italic;">
                 posted at {{ moment(post.timestamp).format('LLL') }}</small>
                 {% if current_user.username == post.author.username %}
-                <a style="float:right;" href="{{ url_for('main.editPost', post=post.id)}}">Edit</a>
+                <a style="float:right;" href="{{ url_for('main.edit_post', post=post.id)}}">Edit</a>
                 {% endif %}
             </td>
         </tr>
@@ -22,7 +22,7 @@
                 <span class="text-muted">
                 Last edited {{ moment(post.last_edited_timestamp).fromNow() }}</span>
                 {% endif %}
-                <a href="{{ url_for('main.viewPost', post=post.id) }}">Permalink</a>
+                <a href="{{ url_for('main.view_post', post=post.id) }}">Permalink</a>
             </small>
             </td>
         </tr>
