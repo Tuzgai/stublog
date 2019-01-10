@@ -14,7 +14,7 @@ bootstrap = Bootstrap()
 login = LoginManager()
 db = SQLAlchemy()
 migrate = Migrate()
-md = Misaka(fenced_code=True, hard_wrap=True, smartypants=True)
+md = Misaka(fenced_code=True, hard_wrap=True)
 moment=Moment()
 
 def create_app(config_class=Config):
@@ -33,6 +33,9 @@ def create_app(config_class=Config):
     
     from app.auth import bp as auth_bp
     app.register_blueprint(auth_bp, url_prefix='/auth')
+    
+    from app.profile import bp as profile_bp
+    app.register_blueprint(profile_bp)
     
     from app.errors import bp as errors_bp
     app.register_blueprint(errors_bp, url_prefix='/errors/')

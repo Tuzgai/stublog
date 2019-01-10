@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block app_content %}
+<section class="container">
+    {% include 'profile/_profile.html' %}
+</section>
+<section class="container">
+    <h3>Posts from this user</h3>
+    {% for post in posts %}
+        {% include '_post.html' %}
+    {% endfor %}
+</section>
+{% endblock %}

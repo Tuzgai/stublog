@@ -1,0 +1,20 @@
+<table class="table">
+    <tr>
+        <td>
+            <img src="{{ user.avatar(48) }}"style="margin-bottom: 1em;"> <br>
+            <strong>{{user.username}}</strong> 
+        </td>
+    </tr>
+    <tr>
+        <td>Registration date: {{ moment(user.regdate).format('LL') }}</td>
+    </tr>
+    <tr>
+        <td>Post count: {{ user.posts.count() }} </td>
+    </tr>
+    <tr>
+        <td><a href="{{ url_for('profile.profile', username=user.username)}}">All Posts</a></td>
+    </tr>
+    <tr>
+        <td><a href="{{ url_for('profile.editProfile', username=current_user.username) }}">Edit Profile</a></td>
+    </tr>
+</table>

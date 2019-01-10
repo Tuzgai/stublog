@@ -1,12 +1,12 @@
 <article>
     {% if post.title != None %}
-    <h3>{{ post.title }}</h3>
+    <h4>{{ post.title }}</h4>
     {% endif %}
     <table class="table">
         <tr>
             <td>
                 <img src="{{ post.author.avatar(36) }}">
-                {{ post.author.username }}
+                <a href="{{ url_for('profile.profile', username=post.author.username) }}">{{ post.author.username }}</a>
                 <small class="text-muted" style="font-style: italic;">
                 posted at {{ moment(post.timestamp).format('LLL') }}</small>
                 {% if current_user.username == post.author.username %}
