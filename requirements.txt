@@ -22,7 +22,6 @@ Mako==1.0.7
 MarkupSafe==1.1.0
 misaka==2.1.1
 mkl-fft==1.0.6
-mkl-random==1.0.2
 numpy==1.15.4
 pandas==0.23.4
 pycparser==2.19
