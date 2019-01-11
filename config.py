@@ -22,3 +22,5 @@ class Config(object):
     PUBLIC_REGISTRATION_OPEN = False
     
     POSTS_PER_PAGE = 5
+    
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
