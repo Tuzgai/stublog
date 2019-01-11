@@ -16,3 +16,5 @@ class Config(object):
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = os.environ.get('ADMINS')
+    ADMIN_LEVEL_EDIT_USER = 1000
+    PUBLIC_REGISTRATION_OPEN = False

@@ -1,0 +1,12 @@
+Hello!
+
+You have been invited to contribute to Stublog, please use
+the link below to complete the registration process.
+
+{{ url_for('auth.invited_user', token=token, _external=True) }}
+
+The link will expire in 24 hours.
+
+Best regards,
+
+Stublog Administration Bot

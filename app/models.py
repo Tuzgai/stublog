@@ -17,6 +17,7 @@ class User(UserMixin, db.Model):
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     regdate = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     bio = db.Column(db.String(140))
+    admin_level = db.Column(db.Integer, index=True, default=0)
     
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -31,7 +32,7 @@ class User(UserMixin, db.Model):
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
         return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(digest, size)
     
-    def get_reset_password_token(self, expires_in=600):
+    def get_reset_token(self, expires_in=600):
         return jwt.encode(
             {'reset_password': self.id, 'exp': time() + expires_in},
             current_app.config['SECRET_KEY'], algorithm='HS256').decode('utf-8')
@@ -43,7 +44,7 @@ class User(UserMixin, db.Model):
                            algorithms=['HS256'])['reset_password']
         except:
             return
-        return User.query.get(id)
+        return User.query.get(id)  
     
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)

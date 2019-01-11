@@ -41,7 +41,10 @@ def create_app(config_class=Config):
     app.register_blueprint(profile_bp)
     
     from app.errors import bp as errors_bp
-    app.register_blueprint(errors_bp, url_prefix='/errors/')
+    app.register_blueprint(errors_bp, url_prefix='/errors')
+    
+    from app.admin import bp as admin_bp
+    app.register_blueprint(admin_bp, url_prefix='/admin')
     
     if not app.debug and not app.testing:
         if app.config['MAIL_SERVER']:

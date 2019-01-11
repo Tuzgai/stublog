@@ -1,0 +1,16 @@
+<p>Hello!</p><br />
+
+<p>You have been invited to contribute to Stublog, please use
+the link below to complete the registration process.</p><br />
+
+<p><a href="{{ url_for('auth.invited_user', token=token, _external=True) }}">Invitation Link</a></p><br />
+
+<p>You can also copy-paste the URL below into the browser of your choice.</p><br />
+
+<p><a href="{{ url_for('auth.invited_user', token=token, _external=True) }}">{{ url_for('auth.invited_user', token=token, _external=True) }}</a></p><br />
+
+<p>The link will expire in 24 hours.</p><br />
+
+<p>Best regards,</p><br />
+
+<p>Stublog Administration Bot</p><br />

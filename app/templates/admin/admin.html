@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+<section class="container">
+    <h1>User List</h1>
+    <table class="table">
+        <tr>
+            <th>UID</th>
+            <th>Username</th>
+            <th>Registration Date</th>
+            <th>Post Count</th>
+            <th>Admin Level</th>
+            <th>Remove User?</th>
+        </tr>
+        {% for user in users if user.username != None %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ moment(user.regdate).format('LL') }}</td>
+            <td>{{ user.posts.count()}} </td>
+            <td>{{ user.admin_level }}</td>
+            <td><a href="{{ url_for('admin.remove_user', username=user.username) }}">Remove User</a></td>
+        </tr>
+        {% endfor %}
+    </table>    
+</section>
+<section class="container">
+    <h1>Admin Tools</h1>
+    <h3>Invite User</h3>
+    <div class="row">
+        <div class="col-md-4">
+            {{ wtf.quick_form(form) }}
+        </div>
+    </div>
+</section>
+{% endblock %}
