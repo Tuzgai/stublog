@@ -2,36 +2,54 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
+<h1 class="container">Admin Tools</h1>
 <section class="container">
-    <h1>User List</h1>
-    <table class="table">
-        <tr>
-            <th>UID</th>
-            <th>Username</th>
-            <th>Registration Date</th>
-            <th>Post Count</th>
-            <th>Admin Level</th>
-            <th>Remove User?</th>
-        </tr>
-        {% for user in users if user.username != None %}
-        <tr>
-            <td>{{ user.id }}</td>
-            <td>{{ user.username }}</td>
-            <td>{{ moment(user.regdate).format('LL') }}</td>
-            <td>{{ user.posts.count()}} </td>
-            <td>{{ user.admin_level }}</td>
-            <td><a href="{{ url_for('admin.remove_user', username=user.username) }}">Remove User</a></td>
-        </tr>
-        {% endfor %}
-    </table>    
+    <h2>User List</h2>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>UID</th>
+                <th>Username</th>
+                <th>Registration Date</th>
+                <th>Post Count</th>
+                <th>Admin Level</th>
+                <th>Remove User?</th>
+            </tr>
+            {% for user in users if user.username != None %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ moment(user.regdate).format('LL') }}</td>
+                <td>{{ user.posts.count()}} </td>
+                <td>{{ user.admin_level }}</td>
+                <td><a class="btn btn-default"
+                       style="background-color:lightcoral;" 
+                       href=""
+                       onclick="deleteUser('{{ user.username }}'); return false;">Remove User</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 </section>
 <section class="container">
-    <h1>Admin Tools</h1>
-    <h3>Invite User</h3>
+    <h2>Invite User</h2>
     <div class="row">
         <div class="col-md-4">
             {{ wtf.quick_form(form) }}
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script>
+        function deleteUser(username) {
+            if (confirm('Are you sure you want to delete ' + username + '?')) {
+                window.location.replace("{{ url_for('admin.remove_user') }}/" + username);
+                return true;
+            }
+        }
+    </script>
 {% endblock %}

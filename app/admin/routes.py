@@ -28,15 +28,16 @@ def admin():
     users = User.query.order_by(User.id).all()
     return render_template('admin/admin.html', title='Admin', form=form, users=users)
 
+@bp.route('/admin/remove_user')
 @bp.route('/admin/remove_user/<username>')
 @login_required
-def remove_user(username):
+def remove_user(username=None):
     if current_user.admin_level < current_app.config['ADMIN_LEVEL_EDIT_USER']:
         flash('You are not authorized to view the admin panel.', 'danger')
         return redirect(url_for('index.main'))
     user = User.query.filter_by(username=username).first()
     if user is None:
-        alert('User does not exist.', 'danger')
+        flash('User does not exist.', 'danger')
         return redirect(url_for('admin.admin'))
     # I don't want to do anything too destructive to the DB
     # We'll just strike the name and scramble the password

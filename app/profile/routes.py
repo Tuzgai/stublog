@@ -8,6 +8,9 @@ from app.profile.forms import EditProfileForm
 
 @bp.route('/profile/<username>')
 def profile(username):
+    if username == '[removed]':
+        flash('The requested profile could not be found.', 'warning')
+        return redirect(url_for('main.index'))
     user = User.query.filter_by(username=username).first()
     posts = Post.query.filter_by(author=user).order_by(Post.timestamp.desc()).all()
     if user is None:
