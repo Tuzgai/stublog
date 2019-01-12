@@ -48,7 +48,7 @@ def edit_post(post):
         post.last_edited_timestamp = datetime.utcnow()
         db.session.commit()
         flash('Your changes have been saved.', 'success')
-        return redirect(url_for('main.viewPost', post=post.id))
+        return redirect(url_for('main.view_post', post=post.id))
     elif request.method == 'GET':
         form.title.data = post.title
         form.body.data = post.body
