@@ -39,4 +39,4 @@ def edit_profile(username):
     elif request.method == 'GET':
         form.username.data = user.username
         form.bio.data = user.bio
-    return render_template('profile/edit_Profile.html', title='Edit Profile', form=form, user=user)
+    return render_template('profile/edit_profile.html', title='Edit Profile', form=form, user=user)
