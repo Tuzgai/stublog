@@ -18,7 +18,7 @@ class Config(object):
     ADMINS = os.environ.get('ADMINS')
     ADMIN_LEVEL_EDIT_USER = 1000
     
-    PUBLIC_REGISTRATION_OPEN = False
+    PUBLIC_REGISTRATION_OPEN = True
     
     POSTS_PER_PAGE = 5
     
