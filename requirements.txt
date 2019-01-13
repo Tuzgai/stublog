@@ -21,7 +21,6 @@ Jinja2==2.10
 Mako==1.0.7
 MarkupSafe==1.1.0
 misaka==2.1.1
-mkl-fft==1.0.6
 pycparser==2.19
 PyJWT==1.7.1
 python-dateutil==2.7.5
