@@ -9,4 +9,4 @@ Planned features: More admin tools, tags, search and more as I have time to work
 
 You can find my living blog here: [stu.systems](http://www.stu.systems/)
 
-You can find a live version where you can make an admin account here (DB resets regularly): [stublog no db](https://stublog-no-db.herokuapp.com/)
+You can find a live version where you can make an admin account and play around here (DB resets regularly): [stublog no db](https://stublog-no-db.herokuapp.com/)
