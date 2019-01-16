@@ -1,4 +1,4 @@
-2019-01-12 20:35:30,961 ERROR: Exception on /index [GET] [in D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\flask\app.py:1761]
+2019-01-15 19:26:50,474 ERROR: Exception on /submit_post [GET] [in D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,31 +12,27 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Stuart\Repos\blog\app\main\routes.py", line 18, in index
-    return render_template('index.html', posts=posts.items, next_url=next_url, prev_url=prev_url)
-  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
+  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Stuart\Repos\blog\app\main\routes.py", line 30, in submit_post
+    return render_template('submit_post.html', title="Submit Post", form=form)
+  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\flask\templating.py", line 134, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
   File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
   File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\Stuart\Repos\blog\app\templates\base.html", line 63, in template
-    {% endblock %}
-  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\environment.py", line 1005, in render
-    return concat(self.root_render_func(self.new_context(vars)))
-  File "C:\Users\Stuart\Repos\blog\app\templates\index.html", line 1, in top-level template code
-    {% extends 'base.html' %}
-  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\Stuart\Repos\blog\app\templates\base.html", line 63, in template
+  File "C:\Users\Stuart\Repos\blog\app\templates\submit_post.html", line 26, in template
     {% endblock %}
   File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\environment.py", line 497, in _parse
     return Parser(self, source, name, encode_filename(filename)).parse()
@@ -48,13 +44,37 @@ Traceback (most recent call last):
     return getattr(self, 'parse_' + self.stream.current.value)()
   File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\parser.py", line 268, in parse_block
     node.body = self.parse_statements(('name:endblock',), drop_needle=True)
-  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\parser.py", line 170, in parse_statements
-    self.fail_eof(end_tokens)
-  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\parser.py", line 104, in fail_eof
-    return self._fail_ut_eof(None, stack, lineno)
+  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\parser.py", line 199, in parse_for
+    body = self.parse_statements(('name:endfor', 'name:else'))
+  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\parser.py", line 199, in parse_for
+    body = self.parse_statements(('name:endfor', 'name:else'))
+  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\parser.py", line 144, in parse_statement
+    self.fail_unknown_tag(token.value, token.lineno)
+  File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\parser.py", line 97, in fail_unknown_tag
+    return self._fail_ut_eof(name, self._end_token_stack, lineno)
   File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\parser.py", line 90, in _fail_ut_eof
     self.fail(' '.join(message), lineno)
   File "D:\Users\Stuart\Anaconda3\envs\flask\lib\site-packages\jinja2\parser.py", line 59, in fail
     raise exc(msg, lineno, self.name, self.filename)
-jinja2.exceptions.TemplateSyntaxError: Unexpected end of template. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
-2019-01-12 20:35:44,629 INFO: Stublog startup [in C:\Users\Stuart\Repos\blog\app\__init__.py:79]
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'endfor' or 'else'. The innermost block that needs to be closed is 'for'.
+2019-01-15 19:28:17,609 INFO: Stublog startup [in C:\Users\Stuart\Repos\blog\app\__init__.py:79]
+2019-01-15 19:28:57,715 INFO: Stublog startup [in C:\Users\Stuart\Repos\blog\app\__init__.py:79]
+2019-01-15 19:30:16,282 INFO: Stublog startup [in C:\Users\Stuart\Repos\blog\app\__init__.py:79]
+2019-01-15 19:31:26,960 INFO: Stublog startup [in C:\Users\Stuart\Repos\blog\app\__init__.py:79]
+2019-01-15 19:33:37,193 INFO: Stublog startup [in C:\Users\Stuart\Repos\blog\app\__init__.py:79]
