@@ -8,8 +8,20 @@
         Posts are formatted as markdown, <a href="https://daringfireball.net/projects/markdown/syntax">Markdown details</a>.
     </p>
     <div class="row">
-        <div class="col-md-4">
-            {{ wtf.quick_form(form) }}
+        <div class="col-md-8">
+            <form class="form" action ="" method="post">
+                {{ form.hidden_tag() }}
+                {{ wtf.form_errors(form, hiddens="only") }}
+                {{ wtf.form_field(form.title) }}
+                {% for error in form.title.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+                {{ wtf.form_field(form.body, rows=25, cols=100) }}
+                <p>{{ wtf.form_field(form.submit) }}</p>
+                {% for error in form.body.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </form>
         </div>
     </div>
     <a class="btn btn-default" 

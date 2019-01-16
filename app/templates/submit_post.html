@@ -17,7 +17,7 @@
                     <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
                 {{ wtf.form_field(form.body, rows=25, cols=100) }}
-                <p>{{ form.submit() }}</p>
+                <p>{{ wtf.form_field(form.submit) }}</p>
                 {% for error in form.body.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
