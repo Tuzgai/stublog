@@ -17,6 +17,7 @@ _mailinglist
 docs/_build/
 
 logs/
+venv/git
 
 # Coverage reports
 htmlcov/
