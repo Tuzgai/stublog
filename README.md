@@ -1,5 +1,5 @@
 # stublog
-A basic personal / team blog website
+A basic personal / team blog platform
 
 This project is based heavily on Miguel Grinberg's excellent [Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world).
 
