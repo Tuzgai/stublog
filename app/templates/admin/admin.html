@@ -22,8 +22,7 @@
                 <td>{{ moment(user.regdate).format('LL') }}</td>
                 <td>{{ user.posts.count()}} </td>
                 <td>{{ user.admin_level }}</td>
-                <td><a class="btn btn-default"
-                       style="background-color:lightcoral;" 
+                <td><a class="btn btn-danger"
                        href=""
                        onclick="deleteUser('{{ user.username }}'); return false;">Remove User</a>
                 </td>
