@@ -64,8 +64,9 @@
         {% endfor %}
     {% endif %}
     {% endwith %}
-    
-    {% block app_content %} {% endblock %}
+    <main class="container">
+        {% block app_content %} {% endblock %}
+    </main>
 {% endblock %}
 
 {% block scripts %}
