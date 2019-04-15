@@ -20,7 +20,7 @@
         </tr>
         <tr>
             <td>
-            {{ post.body|markdown }}
+            {{ post.body|safe }}
             <small>
                 {% if post.last_edited_timestamp != None %}
                 <span class="text-muted">

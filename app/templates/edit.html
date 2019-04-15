@@ -2,11 +2,14 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
+<script src='https://cloud.tinymce.com/5/tinymce.min.js?apiKey=o2xp82bqxprpd8r2rfavh4hfvs8exznpqqpkoxlp3mktxxti'></script>
+  <script>
+  tinymce.init({
+    selector: 'textarea'
+  });
+</script>
 <section class="container">
     <h2>Edit Post</h2>
-    <p>
-        Posts are formatted as markdown, <a href="https://daringfireball.net/projects/markdown/syntax">Markdown details</a>.
-    </p>
     <div class="row">
         <div class="col-md-8">
             <form class="form" action ="" method="post">
