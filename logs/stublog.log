@@ -84,3 +84,4 @@ jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'. You p
 2019-04-15 08:42:09,716 INFO: Stublog startup [in C:\Users\Stuart\repos\blog\app\__init__.py:79]
 2019-04-15 08:51:16,329 INFO: Stublog startup [in C:\Users\Stuart\repos\blog\app\__init__.py:79]
 2019-04-15 09:26:19,036 INFO: Stublog startup [in C:\Users\Stuart\repos\blog\app\__init__.py:79]
+2019-04-15 09:31:58,628 INFO: Stublog startup [in C:\Users\Stuart\repos\blog\app\__init__.py:79]

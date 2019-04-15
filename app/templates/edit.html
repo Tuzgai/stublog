@@ -2,12 +2,6 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
-<script src='https://cloud.tinymce.com/5/tinymce.min.js?apiKey=o2xp82bqxprpd8r2rfavh4hfvs8exznpqqpkoxlp3mktxxti'></script>
-  <script>
-  tinymce.init({
-    selector: 'textarea'
-  });
-</script>
 <section class="container">
     <h2>Edit Post</h2>
     <div class="row">
@@ -45,5 +39,11 @@
                 return true;
             }
         }
+    </script>
+    <script src='https://cloud.tinymce.com/5/tinymce.min.js?apiKey=o2xp82bqxprpd8r2rfavh4hfvs8exznpqqpkoxlp3mktxxti'></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea'
+        });
     </script>
 {% endblock %}
